@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abhijith John Vichatt — Mechanical Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --surface2: #181818;
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.14);
+    --accent: #E8D5A3;
+    --accent2: #B8956A;
+    --text: #F0EDE6;
+    --muted: #888880;
+    --faint: #444440;
+    --blue: #6B9FD4;
+    --teal: #5BBFAD;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 8rem 3rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; max-width: 900px; }
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-tag::before {
+    content: '';
+    display: inline-block;
+    width: 32px; height: 1px;
+    background: var(--accent2);
+  }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+  h1 span { color: var(--accent); }
+  .hero-desc {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent);
+    color: #0a0a0a;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.85rem 1.75rem;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+  .btn-outline {
+    border: 0.5px solid var(--border2);
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.85rem 1.75rem;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .hero-stats {
+    position: absolute; right: 3rem; bottom: 4rem;
+    display: flex; gap: 3rem;
+  }
+  .stat { text-align: right; }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem; font-weight: 700;
+    color: var(--accent);
+    display: block;
+  }
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+
+  /* SECTIONS */
+  section { padding: 6rem 3rem; }
+  .section-header {
+    display: flex; align-items: baseline; gap: 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent2);
+    letter-spacing: 0.1em;
+  }
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+  .section-line {
+    flex: 1; height: 0.5px;
+    background: var(--border);
+    margin-left: auto;
+    max-width: 200px;
+  }
+
+  /* EXPERIENCE */
+  #experience { background: var(--surface); }
+  .exp-list { display: flex; flex-direction: column; gap: 0; }
+  .exp-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    padding: 2.5rem 0;
+    border-bottom: 0.5px solid var(--border);
+    position: relative;
+  }
+  .exp-item:first-child { padding-top: 0; }
+  .exp-meta { padding-top: 0.15rem; }
+  .exp-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--accent2);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .exp-company {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 300;
+  }
+  .exp-location {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--faint);
+    margin-top: 0.3rem;
+    letter-spacing: 0.08em;
+  }
+  .exp-role {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--text);
+    margin-bottom: 0.85rem;
+  }
+  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+  .exp-bullets li {
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-weight: 300;
+    padding-left: 1rem;
+    position: relative;
+  }
+  .exp-bullets li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: var(--faint);
+    font-size: 0.75rem;
+    top: 0.1rem;
+  }
+  .exp-highlight { color: var(--accent) !important; font-weight: 500 !important; }
+
+  /* PROJECTS */
+  #projects { background: var(--bg); }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5px;
+    background: var(--border);
+  }
+  .project-card {
+    background: var(--bg);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.25s;
+    cursor: default;
+  }
+  .project-card:hover { background: var(--surface2); }
+  .project-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .project-card:hover::before { transform: scaleX(1); }
+  .project-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 1rem;
+  }
+  .project-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+  .project-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+  .project-result {
+    background: rgba(232,213,163,0.06);
+    border-left: 2px solid var(--accent);
+    padding: 0.6rem 0.85rem;
+    font-size: 0.82rem;
+    color: var(--accent);
+    font-style: italic;
+    margin-bottom: 1.25rem;
+  }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    padding: 0.25rem 0.6rem;
+    border: 0.5px solid var(--faint);
+    color: var(--faint);
+    text-transform: uppercase;
+  }
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--blue);
+    text-decoration: none;
+    margin-top: 1rem;
+    text-transform: uppercase;
+  }
+  .project-link:hover { color: var(--accent); }
+
+  /* SKILLS */
+  #skills { background: var(--surface); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+  }
+  .skill-group {
+    background: var(--surface);
+    padding: 2rem;
+  }
+  .skill-group-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .skill-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-pill {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-weight: 300;
+    padding: 0.3rem 0;
+    width: 100%;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .skill-pill::before {
+    content: '';
+    width: 4px; height: 4px;
+    background: var(--faint);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* EDUCATION */
+  #education { background: var(--bg); }
+  .edu-card {
+    border: 0.5px solid var(--border);
+    padding: 2.5rem;
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+  .edu-card::after {
+    content: 'UF';
+    position: absolute; right: 2rem; top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Syne', sans-serif;
+    font-size: 5rem;
+    font-weight: 800;
+    color: rgba(232,213,163,0.04);
+    pointer-events: none;
+    letter-spacing: -0.05em;
+  }
+  .edu-degree {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+  }
+  .edu-school {
+    font-size: 1rem;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+  .edu-grad {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--faint);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .edu-courses {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+  }
+  .course-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    padding: 0.25rem 0.65rem;
+    border: 0.5px solid var(--border);
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+  .awards-row {
+    display: flex; flex-wrap: wrap; gap: 1rem;
+    margin-top: 2rem;
+  }
+  .award {
+    display: flex; align-items: center; gap: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 300;
+  }
+  .award::before {
+    content: '★';
+    color: var(--accent);
+    font-size: 0.7rem;
+  }
+
+  /* CONTACT */
+  #contact {
+    background: var(--surface);
+    text-align: center;
+  }
+  .contact-inner { max-width: 600px; margin: 0 auto; }
+  .contact-heading {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .contact-heading span { color: var(--accent); }
+  .contact-sub {
+    font-size: 0.95rem;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+  .contact-links {
+    display: flex; justify-content: center;
+    flex-wrap: wrap; gap: 1rem;
+    margin-bottom: 3rem;
+  }
+  .contact-link {
+    display: flex; align-items: center; gap: 0.6rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-decoration: none;
+    border: 0.5px solid var(--border);
+    padding: 0.75rem 1.25rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+  .contact-icon { font-size: 0.9rem; }
+
+  /* FOOTER */
+  footer {
+    padding: 1.5rem 3rem;
+    border-top: 0.5px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--bg);
+  }
+  .footer-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--faint);
+    letter-spacing: 0.05em;
+  }
+  .footer-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--faint);
+    letter-spacing: 0.08em;
+  }
+
+  /* ANIMATIONS */
+  .fade-up {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.2rem; }
+    section { padding: 4rem 1.5rem; }
+    #hero { padding: 7rem 1.5rem 3rem; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .hero-stats { position: static; margin-top: 3rem; justify-content: flex-start; }
+    footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo">JV</a>
+  <ul class="nav-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Mechanical Engineering · University of Florida</div>
+    <h1>Abhijith<br>John <span>Vichatt</span></h1>
+    <p class="hero-desc">
+      Mechanical engineering student specializing in CAD design, manufacturing, and mechatronics. Experience at Honda, Florida Power & Light, and UF's Machine Intelligence Lab.
+    </p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">3+</span>
+      <span class="stat-label">Internships</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">5+</span>
+      <span class="stat-label">CAD Tools</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">4</span>
+      <span class="stat-label">Projects</span>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header fade-up">
+    <span class="section-num">01</span>
+    <h2>Experience</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="exp-list">
+
+    <div class="exp-item fade-up">
+      <div class="exp-meta">
+        <div class="exp-date">May – Aug 2025</div>
+        <div class="exp-company">Florida Power & Light</div>
+        <div class="exp-location">North Port, FL</div>
+      </div>
+      <div>
+        <div class="exp-role">Power Delivery Intern</div>
+        <ul class="exp-bullets">
+          <li>Engineered <span class="exp-highlight">100+ utility service schematics</span> using AutoCAD and Electric Office, ensuring 100% adherence to FPL safety standards.</li>
+          <li>Optimized power delivery for <span class="exp-highlight">30+ residential developments</span> by coordinating specs between developers, contractors, and engineering teams.</li>
+          <li>Conducted field audits of utility pole infrastructure, updating legacy rural schematics to improve regional grid reliability.</li>
+          <li>Reduced project approval lead times by resolving technical service bottlenecks for builders.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item fade-up">
+      <div class="exp-meta">
+        <div class="exp-date">Jan – Apr 2025</div>
+        <div class="exp-company">Honda</div>
+        <div class="exp-location">Russell's Point, OH</div>
+      </div>
+      <div>
+        <div class="exp-role">Manufacturing Co-Op</div>
+        <ul class="exp-bullets">
+          <li>Developed <span class="exp-highlight">10+ precision assembly line components</span> using SolidWorks and AutoCAD with GD&T standards.</li>
+          <li>Spearheaded troubleshooting with cross-functional teams, achieving a <span class="exp-highlight">15% reduction in assembly process time</span> for new vehicle models.</li>
+          <li>Fabricated and reworked critical tooling using manual lathes and CNC mills, cutting project turnaround by <span class="exp-highlight">20+ hours</span>.</li>
+          <li>Leveraged CATIA and SolidWorks for advanced automotive part design and process optimization.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item fade-up">
+      <div class="exp-meta">
+        <div class="exp-date">May – Dec 2024</div>
+        <div class="exp-company">Machine Intelligence Lab</div>
+        <div class="exp-location">Gainesville, FL</div>
+      </div>
+      <div>
+        <div class="exp-role">Research Intern</div>
+        <ul class="exp-bullets">
+          <li>Optimized RoboSub AUV structures in Fusion 360, achieving a <span class="exp-highlight">30% mass reduction</span> while maintaining structural integrity under hydrostatic loads.</li>
+          <li>Designed battery mounting bracket and thruster mount using aluminum, PMMA, lathe, and mill fabrication.</li>
+          <li>Collaborated with software teams to integrate ML navigation algorithms, improving autonomous waypoint tracking precision.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item fade-up">
+      <div class="exp-meta">
+        <div class="exp-date">Dec 2022 – May 2024</div>
+        <div class="exp-company">GATR VEX Robotics</div>
+        <div class="exp-location">Gainesville, FL</div>
+      </div>
+      <div>
+        <div class="exp-role">Designer</div>
+        <ul class="exp-bullets">
+          <li>Applied FEA stress analysis and rapid prototyping to optimize chassis durability for competition-grade robotics.</li>
+          <li>Designed catapult mechanism achieving <span class="exp-highlight">92.5% accuracy</span> using Fusion 360 and iterative launch-angle prototyping.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header fade-up">
+    <span class="section-num">02</span>
+    <h2>Projects</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card fade-up">
+      <div class="project-tag">Capstone · Team Project</div>
+      <div class="project-title">Injection Molder</div>
+      <p class="project-desc">
+        Capstone class team project designing and engineering an injection molding machine. CAD modeled in full 3D with attention to manufacturing tolerances, mold design, and mechanical actuation systems.
+      </p>
+      <div class="project-result">Full 3D CAD renders completed — add images to showcase this project</div>
+      <div class="project-tags">
+        <span class="tag">SolidWorks</span>
+        <span class="tag">GD&T</span>
+        <span class="tag">Manufacturing</span>
+        <span class="tag">Team</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-up">
+      <div class="project-tag">Personal Project</div>
+      <div class="project-title">Pan & Tilt Camera Mount</div>
+      <p class="project-desc">
+        Autonomous object-tracking camera system using Python OpenCV with YOLOv3-tiny for real-time detection, Arduino Mega for servo control, and a custom-fabricated pan/tilt mechanical mount.
+      </p>
+      <div class="project-result">Tracks smallest detected object in frame with manual/auto toggle via joystick</div>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">OpenCV</span>
+        <span class="tag">YOLO</span>
+        <span class="tag">Arduino</span>
+        <span class="tag">3D Printing</span>
+      </div>
+      <a href="https://github.com/jkwaterbottlelol/Pan-And-Tilt-Camera-Mount" class="project-link" target="_blank">↗ GitHub</a>
+    </div>
+
+    <div class="project-card fade-up">
+      <div class="project-tag">Machine Intelligence Lab</div>
+      <div class="project-title">RoboSub AUV Components</div>
+      <p class="project-desc">
+        Designed two critical components for UF's autonomous underwater vehicle: a removable battery mounting bracket and a thruster mount with propeller guards, both optimized for underwater operation.
+      </p>
+      <div class="project-result">30% mass reduction achieved while maintaining structural integrity under hydrostatic loads</div>
+      <div class="project-tags">
+        <span class="tag">Fusion 360</span>
+        <span class="tag">Aluminum</span>
+        <span class="tag">Lathe/Mill</span>
+        <span class="tag">FEA</span>
+        <span class="tag">PETG</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-up">
+      <div class="project-tag">GATR VEX Robotics</div>
+      <div class="project-title">Catapult Launch Mechanism</div>
+      <p class="project-desc">
+        Designed and assembled a competition-grade catapult mechanism for VEX robotics. Used rapid prototyping to iteratively tune the launch angle and trajectory for maximum target accuracy.
+      </p>
+      <div class="project-result">92.5% target accuracy achieved in competition conditions</div>
+      <div class="project-tags">
+        <span class="tag">Fusion 360</span>
+        <span class="tag">Rapid Prototyping</span>
+        <span class="tag">FEA</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header fade-up">
+    <span class="section-num">03</span>
+    <h2>Skills</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-group fade-up">
+      <div class="skill-group-title">Design &amp; CAD</div>
+      <div class="skill-list">
+        <div class="skill-pill">SolidWorks (CSWA Certified)</div>
+        <div class="skill-pill">Fusion 360</div>
+        <div class="skill-pill">AutoCAD</div>
+        <div class="skill-pill">CATIA</div>
+        <div class="skill-pill">GD&T</div>
+      </div>
+    </div>
+    <div class="skill-group fade-up">
+      <div class="skill-group-title">Analysis &amp; Simulation</div>
+      <div class="skill-list">
+        <div class="skill-pill">FEA (Finite Element Analysis)</div>
+        <div class="skill-pill">MATLAB</div>
+        <div class="skill-pill">Mathcad</div>
+        <div class="skill-pill">Stress Analysis</div>
+        <div class="skill-pill">Fluid Mechanics</div>
+      </div>
+    </div>
+    <div class="skill-group fade-up">
+      <div class="skill-group-title">Programming</div>
+      <div class="skill-list">
+        <div class="skill-pill">Python</div>
+        <div class="skill-pill">OpenCV</div>
+        <div class="skill-pill">Arduino / C++</div>
+        <div class="skill-pill">Serial Communication</div>
+      </div>
+    </div>
+    <div class="skill-group fade-up">
+      <div class="skill-group-title">Fabrication</div>
+      <div class="skill-list">
+        <div class="skill-pill">CNC Machining</div>
+        <div class="skill-pill">Manual Lathe &amp; Mill</div>
+        <div class="skill-pill">3D Printing / FDM</div>
+        <div class="skill-pill">Rapid Prototyping</div>
+        <div class="skill-pill">Welding &amp; Epoxy Assembly</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header fade-up">
+    <span class="section-num">04</span>
+    <h2>Education</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="edu-card fade-up">
+    <div class="edu-degree">B.S. in Mechanical Engineering</div>
+    <div class="edu-school">University of Florida</div>
+    <div class="edu-grad">Expected Graduation: Dec 2026 · Gainesville, FL</div>
+    <div class="edu-courses">
+      <span class="course-tag">SolidWorks</span>
+      <span class="course-tag">Mechanics of Materials</span>
+      <span class="course-tag">Fluid Mechanics</span>
+      <span class="course-tag">Heat Transfer</span>
+      <span class="course-tag">Controls</span>
+    </div>
+    <div class="awards-row">
+      <div class="award">Florida Academic Scholarship</div>
+      <div class="award">John &amp; Mittie Collins Engineering Scholarship</div>
+      <div class="award">CSWA Certified</div>
+      <div class="award">Adobe Photoshop Certified</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner fade-up">
+    <div class="contact-heading">Get in <span>touch.</span></div>
+    <p class="contact-sub">Currently seeking full-time mechanical engineering roles after December 2026. Open to internships and co-ops in the meantime.</p>
+    <div class="contact-links">
+      <a href="/cdn-cgi/l/email-protection#3a5b58525350534e521450555254097a5d575b535614595557" class="contact-link">
+        <span class="contact-icon">✉</span> <span class="__cf_email__" data-cfemail="4726252f2e2d2e332f692d282f297407202a262e2b6924282a">[email&#160;protected]</span>
+      </a>
+      <a href="tel:4077147054" class="contact-link">
+        <span class="contact-icon">✆</span> 407 714 7054
+      </a>
+      <a href="https://linkedin.com/in/ajohn2003" target="_blank" class="contact-link">
+        <span class="contact-icon">in</span> linkedin.com/in/ajohn2003
+      </a>
+      <a href="https://github.com/jkwaterbottlelol" target="_blank" class="contact-link">
+        <span class="contact-icon">⌥</span> GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-name">Abhijith John Vichatt</span>
+  <span class="footer-note">Mechanical Engineering · University of Florida · 2026</span>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
