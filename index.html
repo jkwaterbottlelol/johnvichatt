@@ -227,6 +227,19 @@
     color: var(--text);
     margin-bottom: 0.85rem;
   }
+  .exp-current {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: var(--teal);
+    padding: 0.15rem 0.5rem;
+    margin-left: 0.6rem;
+    vertical-align: middle;
+    border-radius: 2px;
+  }
   .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
   .exp-bullets li {
     font-size: 0.9rem;
@@ -533,7 +546,7 @@
     <div class="hero-tag">Mechanical Engineering · University of Florida</div>
     <h1>Abhijith<br>John <span>Vichatt</span></h1>
     <p class="hero-desc">
-      Mechanical engineering student specializing in CAD design, manufacturing, and mechatronics. Experience at Honda, Florida Power & Light, and UF's Machine Intelligence Lab.
+      Mechanical engineering student specializing in CAD design, manufacturing, and mechatronics. Currently interning at Honda on automation sensor integration and PLC-based systems, with prior experience at Florida Power & Light and UF's Machine Intelligence Lab.
     </p>
     <div class="hero-ctas">
       <a href="#projects" class="btn-primary">View Projects</a>
@@ -542,12 +555,12 @@
   </div>
   <div class="hero-stats">
     <div class="stat">
-      <span class="stat-num">3+</span>
+      <span class="stat-num">4+</span>
       <span class="stat-label">Internships</span>
     </div>
     <div class="stat">
-      <span class="stat-num">5+</span>
-      <span class="stat-label">CAD Tools</span>
+      <span class="stat-num">6+</span>
+      <span class="stat-label">CAD/FEA Tools</span>
     </div>
     <div class="stat">
       <span class="stat-num">4</span>
@@ -567,6 +580,24 @@
 
     <div class="exp-item fade-up">
       <div class="exp-meta">
+        <div class="exp-date">May 2026 – Present</div>
+        <div class="exp-company">Honda</div>
+        <div class="exp-location">Russell's Point, OH</div>
+      </div>
+      <div>
+        <div class="exp-role">Manufacturing Intern<span class="exp-current">Current</span></div>
+        <ul class="exp-bullets">
+          <li>Spearheading technical procurement and integration of automation sensors — including <span class="exp-highlight">Keyence vision systems</span>, laser displacement sensors, and proximity switches — using Mitsubishi PLC architecture.</li>
+          <li>Engineered custom lineside fixtures using SolidWorks, directly reducing operator workload and streamlining assembly processes.</li>
+          <li>Optimized Automated Guided Vehicle (AGV) routing and autonomous cart systems on Siemens PLC for a high-volume production line, improving material flow by <span class="exp-highlight">15%</span> and operational efficiency.</li>
+          <li>Accelerated tooling turnaround by independently fabricating rapid prototypes using manual lathes, mills, and CNC machinery.</li>
+          <li>Managing vendor relations, analyzing engineering quotes, and tracking component logistics to ensure adherence to tight deployment timelines.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item fade-up">
+      <div class="exp-meta">
         <div class="exp-date">May – Aug 2025</div>
         <div class="exp-company">Florida Power & Light</div>
         <div class="exp-location">North Port, FL</div>
@@ -574,10 +605,10 @@
       <div>
         <div class="exp-role">Power Delivery Intern</div>
         <ul class="exp-bullets">
-          <li>Engineered <span class="exp-highlight">100+ utility service schematics</span> using AutoCAD and Electric Office, ensuring 100% adherence to FPL safety standards.</li>
-          <li>Optimized power delivery for <span class="exp-highlight">30+ residential developments</span> by coordinating specs between developers, contractors, and engineering teams.</li>
-          <li>Conducted field audits of utility pole infrastructure, updating legacy rural schematics to improve regional grid reliability.</li>
-          <li>Reduced project approval lead times by resolving technical service bottlenecks for builders.</li>
+          <li>Engineered <span class="exp-highlight">140 detailed electrical schematics</span> and construction manuals for residential, commercial, and remote grid expansion projects.</li>
+          <li>Executed FEA on utility poles using an Abaqus-equivalent internal solver to validate structural integrity under severe hurricane wind loads.</li>
+          <li>Conducted independent field site visits to audit physical grid assets, verifying transformer placements and resolving layout discrepancies from outdated satellite mapping.</li>
+          <li>Collaborated directly with residential and commercial customers during on-site assessments to accurately scope power delivery requirements.</li>
         </ul>
       </div>
     </div>
@@ -608,24 +639,26 @@
       <div>
         <div class="exp-role">Research Intern</div>
         <ul class="exp-bullets">
-          <li>Optimized RoboSub AUV structures in Fusion 360, achieving a <span class="exp-highlight">30% mass reduction</span> while maintaining structural integrity under hydrostatic loads.</li>
-          <li>Designed battery mounting bracket and thruster mount using aluminum, PMMA, lathe, and mill fabrication.</li>
-          <li>Collaborated with software teams to integrate ML navigation algorithms, improving autonomous waypoint tracking precision.</li>
+          <li>Designed the chassis for "Navigator," an AUV built for search and rescue missions, using Fusion 360.</li>
+          <li>Achieved a <span class="exp-highlight">23% mass reduction</span> on the AUV chassis through stress validation and structural optimization using Abaqus and Nastran FEA.</li>
+          <li>Calculated hydrodynamic thrust requirements and specified motor capacities to ensure optimal underwater maneuverability and mission endurance.</li>
+          <li>Implemented autonomous control systems, performing PID tuning to stabilize propulsion and navigation loops.</li>
         </ul>
       </div>
     </div>
 
     <div class="exp-item fade-up">
       <div class="exp-meta">
-        <div class="exp-date">Dec 2022 – May 2024</div>
-        <div class="exp-company">GATR VEX Robotics</div>
+        <div class="exp-date">Aug 2022 – Dec 2024</div>
+        <div class="exp-company">Gator VEX Robotics Club</div>
         <div class="exp-location">Gainesville, FL</div>
       </div>
       <div>
-        <div class="exp-role">Designer</div>
+        <div class="exp-role">Mechanical Team Lead</div>
         <ul class="exp-bullets">
-          <li>Applied FEA stress analysis and rapid prototyping to optimize chassis durability for competition-grade robotics.</li>
-          <li>Designed catapult mechanism achieving <span class="exp-highlight">92.5% accuracy</span> using Fusion 360 and iterative launch-angle prototyping.</li>
+          <li>Led a mechanical sub-team through the end-to-end design and fabrication of competitive VEX robotic systems.</li>
+          <li>Engineered complex 3D CAD assemblies and executed structural FEA on the robot's chassis using Fusion 360 to validate structural integrity.</li>
+          <li>Won the inter-club mechanical design competition, resulting in the custom chassis architecture being selected as the organization's <span class="exp-highlight">official national championship entry</span>.</li>
         </ul>
       </div>
     </div>
@@ -643,17 +676,17 @@
   <div class="projects-grid">
 
     <div class="project-card fade-up">
-      <div class="project-tag">Capstone · Team Project</div>
-      <div class="project-title">Injection Molder</div>
+      <div class="project-tag">Personal Project · Jan – Apr 2026</div>
+      <div class="project-title">Desktop Injection Molder Prototype</div>
       <p class="project-desc">
-        Capstone class team project designing and engineering an injection molding machine. CAD modeled in full 3D with attention to manufacturing tolerances, mold design, and mechanical actuation systems.
+        Engineered the electromechanical system for a desktop injection molder, including a custom auger, hopper, and precision heating chamber. Designed a uniform-heat thermal subsystem, calculating power requirements and integrating three heater bands.
       </p>
-      <div class="project-result">Full 3D CAD renders completed — add images to showcase this project</div>
+      <div class="project-result">Sustained a continuous 300°C+ zone to successfully process high-temperature Polyphthalamide (PPA)</div>
       <div class="project-tags">
         <span class="tag">SolidWorks</span>
-        <span class="tag">GD&T</span>
+        <span class="tag">Thermal Design</span>
+        <span class="tag">Electromechanical</span>
         <span class="tag">Manufacturing</span>
-        <span class="tag">Team</span>
       </div>
     </div>
 
@@ -676,31 +709,30 @@
 
     <div class="project-card fade-up">
       <div class="project-tag">Machine Intelligence Lab</div>
-      <div class="project-title">RoboSub AUV Components</div>
+      <div class="project-title">"Navigator" AUV Chassis</div>
       <p class="project-desc">
-        Designed two critical components for UF's autonomous underwater vehicle: a removable battery mounting bracket and a thruster mount with propeller guards, both optimized for underwater operation.
+        Designed the chassis for Navigator, an autonomous underwater vehicle built for search and rescue missions. Performed stress validation, structural optimization, and calculated hydrodynamic thrust requirements in Fusion 360.
       </p>
-      <div class="project-result">30% mass reduction achieved while maintaining structural integrity under hydrostatic loads</div>
+      <div class="project-result">23% mass reduction achieved via Abaqus and Nastran FEA validation</div>
       <div class="project-tags">
         <span class="tag">Fusion 360</span>
-        <span class="tag">Aluminum</span>
-        <span class="tag">Lathe/Mill</span>
-        <span class="tag">FEA</span>
-        <span class="tag">PETG</span>
+        <span class="tag">Abaqus</span>
+        <span class="tag">Nastran</span>
+        <span class="tag">PID Tuning</span>
       </div>
     </div>
 
     <div class="project-card fade-up">
-      <div class="project-tag">GATR VEX Robotics</div>
-      <div class="project-title">Catapult Launch Mechanism</div>
+      <div class="project-tag">Gator VEX Robotics Club</div>
+      <div class="project-title">Championship Robot Chassis</div>
       <p class="project-desc">
-        Designed and assembled a competition-grade catapult mechanism for VEX robotics. Used rapid prototyping to iteratively tune the launch angle and trajectory for maximum target accuracy.
+        Led the mechanical design and fabrication of a competitive VEX robot chassis as Mechanical Team Lead, engineering 3D CAD assemblies and running structural FEA to validate durability under competition loads.
       </p>
-      <div class="project-result">92.5% target accuracy achieved in competition conditions</div>
+      <div class="project-result">Won the inter-club design competition — selected as the official national championship entry</div>
       <div class="project-tags">
         <span class="tag">Fusion 360</span>
-        <span class="tag">Rapid Prototyping</span>
         <span class="tag">FEA</span>
+        <span class="tag">Team Lead</span>
       </div>
     </div>
 
@@ -722,26 +754,28 @@
         <div class="skill-pill">Fusion 360</div>
         <div class="skill-pill">AutoCAD</div>
         <div class="skill-pill">CATIA</div>
+        <div class="skill-pill">Pro-E / Creo</div>
+        <div class="skill-pill">Revit</div>
         <div class="skill-pill">GD&T</div>
       </div>
     </div>
     <div class="skill-group fade-up">
       <div class="skill-group-title">Analysis &amp; Simulation</div>
       <div class="skill-list">
-        <div class="skill-pill">FEA (Finite Element Analysis)</div>
-        <div class="skill-pill">MATLAB</div>
+        <div class="skill-pill">FEA — Abaqus, Nastran</div>
+        <div class="skill-pill">MATLAB / Simulink</div>
+        <div class="skill-pill">FMEA</div>
         <div class="skill-pill">Mathcad</div>
-        <div class="skill-pill">Stress Analysis</div>
-        <div class="skill-pill">Fluid Mechanics</div>
+        <div class="skill-pill">LabVIEW</div>
       </div>
     </div>
     <div class="skill-group fade-up">
-      <div class="skill-group-title">Programming</div>
+      <div class="skill-group-title">Automation &amp; Programming</div>
       <div class="skill-list">
-        <div class="skill-pill">Python</div>
-        <div class="skill-pill">OpenCV</div>
+        <div class="skill-pill">Mitsubishi GX3 PLCs</div>
+        <div class="skill-pill">Siemens PLCs</div>
+        <div class="skill-pill">Python / OpenCV</div>
         <div class="skill-pill">Arduino / C++</div>
-        <div class="skill-pill">Serial Communication</div>
       </div>
     </div>
     <div class="skill-group fade-up">
@@ -751,7 +785,6 @@
         <div class="skill-pill">Manual Lathe &amp; Mill</div>
         <div class="skill-pill">3D Printing / FDM</div>
         <div class="skill-pill">Rapid Prototyping</div>
-        <div class="skill-pill">Welding &amp; Epoxy Assembly</div>
       </div>
     </div>
   </div>
@@ -774,12 +807,13 @@
       <span class="course-tag">Fluid Mechanics</span>
       <span class="course-tag">Heat Transfer</span>
       <span class="course-tag">Controls</span>
+      <span class="course-tag">Finite Element Analysis</span>
     </div>
     <div class="awards-row">
       <div class="award">Florida Academic Scholarship</div>
       <div class="award">John &amp; Mittie Collins Engineering Scholarship</div>
+      <div class="award">Dean's List</div>
       <div class="award">CSWA Certified</div>
-      <div class="award">Adobe Photoshop Certified</div>
     </div>
   </div>
 </section>
@@ -790,8 +824,8 @@
     <div class="contact-heading">Get in <span>touch.</span></div>
     <p class="contact-sub">Currently seeking full-time mechanical engineering roles after December 2026. Open to internships and co-ops in the meantime.</p>
     <div class="contact-links">
-      <a href="/cdn-cgi/l/email-protection#3a5b58525350534e521450555254097a5d575b535614595557" class="contact-link">
-        <span class="contact-icon">✉</span> <span class="__cf_email__" data-cfemail="4726252f2e2d2e332f692d282f297407202a262e2b6924282a">[email&#160;protected]</span>
+      <a href="mailto:abhijith.john3@gmail.com" class="contact-link">
+        <span class="contact-icon">✉</span> abhijith.john3@gmail.com
       </a>
       <a href="tel:4077147054" class="contact-link">
         <span class="contact-icon">✆</span> 407 714 7054
@@ -811,6 +845,15 @@
   <span class="footer-note">Mechanical Engineering · University of Florida · 2026</span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-up');
+      }
+    });
+  });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
