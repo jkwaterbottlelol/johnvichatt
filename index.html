@@ -7,24 +7,24 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
   :root {
-    --bg: #0a0a0a;
-    --surface: #111111;
-    --surface2: #181818;
-    --border: rgba(255,255,255,0.08);
-    --border2: rgba(255,255,255,0.14);
-    --accent: #E8D5A3;
-    --accent2: #B8956A;
-    --text: #F0EDE6;
-    --muted: #888880;
-    --faint: #444440;
-    --blue: #6B9FD4;
-    --teal: #5BBFAD;
+    --bg: #FAF6F2;
+    --surface: #F0EFE2;
+    --surface2: #E7E6D6;
+    --border: rgba(60,50,45,0.09);
+    --border2: rgba(60,50,45,0.16);
+    --accent: #8FB89A;
+    --accent2: #6F9A7D;
+    --text: #3A342F;
+    --muted: #7C736A;
+    --faint: #C7BBAE;
+    --blue: #7FA8CC;
+    --teal: #6FBFA8;
   }
-
+ 
   html { scroll-behavior: smooth; }
-
+ 
   body {
     background: var(--bg);
     color: var(--text);
@@ -33,13 +33,13 @@
     line-height: 1.6;
     overflow-x: hidden;
   }
-
+ 
   /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 1.2rem 3rem;
-    background: rgba(10,10,10,0.85);
+    background: rgba(250,246,242,0.85);
     backdrop-filter: blur(12px);
     border-bottom: 0.5px solid var(--border);
   }
@@ -62,7 +62,7 @@
     transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--accent); }
-
+ 
   /* HERO */
   #hero {
     min-height: 100vh;
@@ -160,7 +160,7 @@
     text-transform: uppercase;
     color: var(--faint);
   }
-
+ 
   /* SECTIONS */
   section { padding: 6rem 3rem; }
   .section-header {
@@ -186,19 +186,27 @@
     margin-left: auto;
     max-width: 200px;
   }
-
+ 
   /* EXPERIENCE */
   #experience { background: var(--surface); }
-  .exp-list { display: flex; flex-direction: column; gap: 0; }
+  .exp-list { display: flex; flex-direction: column; gap: 1.5rem; }
   .exp-item {
     display: grid;
     grid-template-columns: 200px 1fr;
     gap: 2rem;
-    padding: 2.5rem 0;
-    border-bottom: 0.5px solid var(--border);
+    padding: 2.25rem 2rem;
+    background: var(--bg);
+    border: 0.5px solid var(--border);
+    border-radius: 20px;
     position: relative;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, background 0.3s ease;
+    cursor: default;
   }
-  .exp-item:first-child { padding-top: 0; }
+  .exp-item:hover {
+    transform: scale(1.035);
+    box-shadow: 0 18px 40px rgba(58,52,47,0.14);
+    z-index: 2;
+  }
   .exp-meta { padding-top: 0.15rem; }
   .exp-date {
     font-family: 'DM Mono', monospace;
@@ -256,7 +264,7 @@
     top: 0.1rem;
   }
   .exp-highlight { color: var(--accent) !important; font-weight: 500 !important; }
-
+ 
   /* PROJECTS */
   #projects { background: var(--bg); }
   .projects-grid {
@@ -331,7 +339,7 @@
     margin-bottom: 1.5rem;
   }
   .project-result {
-    background: rgba(232,213,163,0.06);
+    background: rgba(143,184,154,0.10);
     border-left: 2px solid var(--accent);
     padding: 0.6rem 0.85rem;
     font-size: 0.82rem;
@@ -362,7 +370,7 @@
     text-transform: uppercase;
   }
   .project-link:hover { color: var(--accent); }
-
+ 
   /* SKILLS */
   #skills { background: var(--surface); }
   .skills-grid {
@@ -401,7 +409,7 @@
     border-radius: 50%;
     flex-shrink: 0;
   }
-
+ 
   /* EDUCATION */
   #education { background: var(--bg); }
   .edu-card {
@@ -411,6 +419,14 @@
     margin: 0 auto;
     position: relative;
     overflow: hidden;
+    border-radius: 20px;
+    background: var(--bg);
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+    cursor: default;
+  }
+  .edu-card:hover {
+    transform: scale(1.035);
+    box-shadow: 0 18px 40px rgba(58,52,47,0.14);
   }
   .edu-card::after {
     content: 'UF';
@@ -419,7 +435,7 @@
     font-family: 'Syne', sans-serif;
     font-size: 5rem;
     font-weight: 800;
-    color: rgba(232,213,163,0.04);
+    color: rgba(143,184,154,0.08);
     pointer-events: none;
     letter-spacing: -0.05em;
   }
@@ -469,7 +485,7 @@
     color: var(--accent);
     font-size: 0.7rem;
   }
-
+ 
   /* CONTACT */
   #contact {
     background: var(--surface);
@@ -510,7 +526,7 @@
   }
   .contact-link:hover { border-color: var(--accent); color: var(--accent); }
   .contact-icon { font-size: 0.9rem; }
-
+ 
   /* FOOTER */
   footer {
     padding: 1.5rem 3rem;
@@ -531,13 +547,13 @@
     color: var(--faint);
     letter-spacing: 0.08em;
   }
-
+ 
   /* ANIMATIONS */
   .fade-up {
     opacity: 1;
     transform: translateY(0);
   }
-
+ 
   /* RESPONSIVE */
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
@@ -552,7 +568,7 @@
 </style>
 </head>
 <body>
-
+ 
 <nav>
   <a href="#hero" class="nav-logo">JV</a>
   <ul class="nav-links">
@@ -562,7 +578,7 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
-
+ 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-grid-bg"></div>
@@ -592,7 +608,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-header fade-up">
@@ -601,7 +617,7 @@
     <div class="section-line"></div>
   </div>
   <div class="exp-list">
-
+ 
     <div class="exp-item fade-up">
       <div class="exp-meta">
         <div class="exp-date">May 2026 – Present</div>
@@ -609,7 +625,7 @@
         <div class="exp-location">Russell's Point, OH</div>
       </div>
       <div>
-        <div class="exp-role">Manufacturing Engineering Intern<span class="exp-current">Current</span></div>
+        <div class="exp-role">Manufacturing Intern<span class="exp-current">Current</span></div>
         <ul class="exp-bullets">
           <li>Spearheading technical procurement and integration of automation sensors — including <span class="exp-highlight">Keyence vision systems</span>, laser displacement sensors, and proximity switches — using Mitsubishi PLC architecture.</li>
           <li>Engineered custom lineside fixtures using SolidWorks, directly reducing operator workload and streamlining assembly processes.</li>
@@ -619,7 +635,7 @@
         </ul>
       </div>
     </div>
-
+ 
     <div class="exp-item fade-up">
       <div class="exp-meta">
         <div class="exp-date">May – Aug 2025</div>
@@ -636,7 +652,7 @@
         </ul>
       </div>
     </div>
-
+ 
     <div class="exp-item fade-up">
       <div class="exp-meta">
         <div class="exp-date">Jan – Apr 2025</div>
@@ -644,7 +660,7 @@
         <div class="exp-location">Russell's Point, OH</div>
       </div>
       <div>
-        <div class="exp-role">Manufacturing Engineering Intern</div>
+        <div class="exp-role">Manufacturing Co-Op</div>
         <ul class="exp-bullets">
           <li>Developed <span class="exp-highlight">10+ precision assembly line components</span> using SolidWorks and AutoCAD with GD&T standards.</li>
           <li>Spearheaded troubleshooting with cross-functional teams, achieving a <span class="exp-highlight">15% reduction in assembly process time</span> for new vehicle models.</li>
@@ -653,7 +669,7 @@
         </ul>
       </div>
     </div>
-
+ 
     <div class="exp-item fade-up">
       <div class="exp-meta">
         <div class="exp-date">May – Dec 2024</div>
@@ -670,7 +686,7 @@
         </ul>
       </div>
     </div>
-
+ 
     <div class="exp-item fade-up">
       <div class="exp-meta">
         <div class="exp-date">Aug 2022 – Dec 2024</div>
@@ -686,10 +702,10 @@
         </ul>
       </div>
     </div>
-
+ 
   </div>
 </section>
-
+ 
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-header fade-up">
@@ -698,7 +714,7 @@
     <div class="section-line"></div>
   </div>
   <div class="projects-grid">
-
+ 
     <div class="project-card fade-up">
       <div class="project-image"><img src="images/injection-molder.jpg" alt="Desktop Injection Molder Prototype" onerror="this.style.display='none'"></div>
       <div class="project-tag">Personal Project · Jan – Apr 2026</div>
@@ -714,7 +730,7 @@
         <span class="tag">Manufacturing</span>
       </div>
     </div>
-
+ 
     <div class="project-card fade-up">
       <div class="project-image"><img src="images/pan-tilt-mount.jpg" alt="Pan & Tilt Camera Mount" onerror="this.style.display='none'"></div>
       <div class="project-tag">Personal Project</div>
@@ -732,7 +748,7 @@
       </div>
       <a href="https://github.com/jkwaterbottlelol/Pan-And-Tilt-Camera-Mount" class="project-link" target="_blank">↗ GitHub</a>
     </div>
-
+ 
     <div class="project-card fade-up">
       <div class="project-image"><img src="images/navigator-auv.jpg" alt="Navigator AUV Chassis" onerror="this.style.display='none'"></div>
       <div class="project-tag">Machine Intelligence Lab</div>
@@ -748,7 +764,7 @@
         <span class="tag">PID Tuning</span>
       </div>
     </div>
-
+ 
     <div class="project-card fade-up">
       <div class="project-image"><img src="images/vex-chassis.jpg" alt="Championship Robot Chassis" onerror="this.style.display='none'"></div>
       <div class="project-tag">Gator VEX Robotics Club</div>
@@ -763,10 +779,10 @@
         <span class="tag">Team Lead</span>
       </div>
     </div>
-
+ 
   </div>
 </section>
-
+ 
 <!-- SKILLS -->
 <section id="skills">
   <div class="section-header fade-up">
@@ -817,7 +833,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- EDUCATION -->
 <section id="education">
   <div class="section-header fade-up">
@@ -845,12 +861,12 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-inner fade-up">
     <div class="contact-heading">Get in <span>touch.</span></div>
-    <p class="contact-sub">Currently seeking full-time mechanical engineering roles. </p>
+    <p class="contact-sub">Currently seeking full-time mechanical engineering roles.</p>
     <div class="contact-links">
       <a href="mailto:abhijith.john3@gmail.com" class="contact-link">
         <span class="contact-icon">✉</span> abhijith.john3@gmail.com
@@ -864,12 +880,12 @@
     </div>
   </div>
 </section>
-
+ 
 <footer>
   <span class="footer-name">Abhijith John Vichatt</span>
   <span class="footer-note">Mechanical Engineering · University of Florida · 2026</span>
 </footer>
-
+ 
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
